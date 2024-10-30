@@ -1,0 +1,23 @@
+- request:
+    method: GET
+    path: /cep/12287650
+  response:
+    status: 200
+    headers:
+      Content-Type: application/json
+    body: >
+      {
+          "cep": "12287-650",
+          "logradouro": "Rua Doutor José de Moura Resende",
+          "complemento": "",
+          "unidade": "",
+          "bairro": "Vera Cruz",
+          "localidade": "Caçapava",
+          "uf": "SP",
+          "estado": "São Paulo",
+          "regiao": "Sudeste",
+          "ibge": "3508504",
+          "gia": "2343",
+          "ddd": "12",
+          "siafi": "6271"
+      }

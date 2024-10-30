@@ -1,0 +1,27 @@
+services:
+  mongo:
+    container_name: mongo-container
+    image: mongo:7.0.12
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpass
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db
+
+  # Para visualizar WEB
+  mongo-express:
+    container_name: mongo-express-container
+    image: mongo-express
+    depends_on:
+      - mongo
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://root:rootpass@mongo:27017/
+      ME_CONFIG_BASICAUTH: true
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: rootpass
+      ME_CONFIG_BASICAUTH_USERNAME: user
+      ME_CONFIG_BASICAUTH_PASSWORD: pass
+    ports:
+      - "8001:8081"
